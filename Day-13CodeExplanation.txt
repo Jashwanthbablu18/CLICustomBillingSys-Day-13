@@ -1,0 +1,61 @@
+This is a  program  which was designed as part of my "30-Day Python Challenge."
+
+1. show_intro():
+   - This Function to represent introduction of this assignment / Project. Starting with a little welcome message.
+
+2. generate_bill():
+   - This function is used to generating and printing a bill for a customer.
+   - It takes three types of arguments:
+     - cust_name: This argument is a string representing the customer's name.
+     - *items: This argument is a variable-length argument list (using *args) that allows passing multiple items as tuples, where each tuple contains an item name and its price.
+     - **extra_charges: This argument is a variable-length keyword argument dictionary (using **kwargs) that allows passing additional charges or discounts as key-value pairs.
+   - The function prints the customer's name.
+   - It initializes total_amt to zero, which will hold the total amount value which has to be paid.
+   - It loops over the items to print each item's name and price, adding each price to total_amt.
+   - It prints a subtotal of the items' prices.
+   - The function then loops over extra_charges to apply any additional fees or discounts, adjusting total_amt accordingly. These could be positive (e.g., tax, delivery) or negative (e.g., discounts).
+   - Finally, it prints the total amount which has to be paid and returns that value, which could be used for logging or further processing.
+
+3. main():
+   - This function main point in program, where program execution starts.
+   - It calls show_intro() to display the introduction msg.
+   - It then calls generate_bill() thrice with different sets of arguments to demonstrate its functionality:
+     - The first call includes extra charges such as tax, discount, and delivery.
+     - The second call does not include any extra charges, showing a simple use case.
+     - The third call does not include any extra charges, any items just an empty bill.
+
+4. Starting Point:
+   - The code includes an entry point check (if __name__ == "__main__":) to ensure that main() is called only when the script is executed directly, not when imported as a module.
+
+What I've learnt:
+- Functions: Generally functions are defined as the block of reusable statements, where it contains number of instructions which works on a specfic task.
+  It helps to break down a larger problem into smaller, managable chunks, making code more modular, readable and reusable.
+- Functions in python are defined with the def keyword, followed by function name and ( ) and a : . 
+- *args: It is Non-keyword variable arguments, This allows a function to accept any no.of positional arguments(arguments that need to be included in the proper position or order).
+  The arguments are passed as a tuple
+- **kwargs: It is keyword variable arguments, This allows a function to accept any no.of keyword arguments(values that, when passed into a function, are identifiable by specific parameter names).
+  These are passed as a dictionary.
+- The *args;
+  Handles variable-length positional args: Means it lets you pass any no.of positional / non-keyword args to a function.
+  Stored as a tuple: means all extra entered args are automatically packed into a tuple.
+  Flexible function calls: Makes functions more general and reusable since we don't have to specify the exact no.of args.
+  Supports unpacking: We can also pass a list / tuple using * when calling a function to unpack its values as individual args.
+- The **kwargs;
+  Handles variable-length keyword args: Means it lets us to pass any no.of named args(key = value pairs).
+  Stored as a dictionary: Means all extra keyword args are stored in a dictionary.
+  Useful for default values and config: Best for flexible config or optional settings.
+  Supports unpacking from dicts: Means we can use ** to unpack a dictionary into named args when calling a function.
+- So, finally *args accepts any no.of positional args without changing functions signnature, we don't need to define fixed no.of params just loop through args.
+  **kwargs allows functions to accept named args that we didn't plan in advance, it makes function extensible by later adding new params without breaking existing function calls.
+- Some disadvantages are;
+  *args:
+      Lack of clarity: Not obvious what args are expected when reading the function defination, this makes less code readable and hard to debug.
+      order matters: It deals with positional args, So calling the function with args in the wrong order cause bugs.
+      No arg names: We cannot refer values by name, we must rely on their position(index), which can cause error. 
+   **args:
+      Hidden params: It's not clear what keyword arguments a function can accept unless you read the internal logic.
+      Typos go unnoticed: Misspelled keyword arguments won’t raise errors if the function just ignores unknown keys.
+      Harder to validate inputs: You often need extra checks inside the function to validate or handle expected keys.
+   
+  
+  ### Note: In this text file arg means -> argument, args means -> arguments, params means -> parameters (In explanation context).
